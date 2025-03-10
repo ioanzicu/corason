@@ -16,8 +16,8 @@ func NewRouter() *mux.Router {
 	mainRouter := r.PathPrefix("/").Subrouter()
 	apiV1Router := r.PathPrefix("/api/v1").Subrouter()
 
-	mainRouter.HandleFunc("/health", health.NewHealth().Handle)
-	apiV1Router.HandleFunc("/health", health.NewHealth().Handle)
+	mainRouter.HandleFunc(health.HealthPath, health.NewHealth().Handle())
+	apiV1Router.HandleFunc(health.HealthPath, health.NewHealth().Handle())
 
 	return r
 }

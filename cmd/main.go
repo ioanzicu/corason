@@ -46,9 +46,9 @@ func NewApp(config config.Config, logger *zap.SugaredLogger) *App {
 		Server: &http.Server{
 			Addr:           fmt.Sprintf("0.0.0.0:%s", config.ApplicationPort),
 			Handler:        router.NewRouter(),
-			ReadTimeout:    config.HTTPServerReadTimeoutSec,
-			WriteTimeout:   config.HTTPServerWriteTimeoutSec,
-			IdleTimeout:    config.HTTPServerIdleimeoutSec,
+			ReadTimeout:    config.HTTPServerReadTimeout,
+			WriteTimeout:   config.HTTPServerWriteTimeout,
+			IdleTimeout:    config.HTTPServerIdleimeout,
 			MaxHeaderBytes: 1 << 20,
 		},
 	}
