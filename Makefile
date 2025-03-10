@@ -6,3 +6,12 @@ test:
 .PHONY: run
 run:
 	go run ./cmd/main.go
+
+.PHONY: upgrade
+upgrade:
+	go get -u ./...
+	go mod tidy
+
+.PHONY: docker-build
+docker-build:
+	docker build -t corason .
